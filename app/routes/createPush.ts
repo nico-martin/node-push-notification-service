@@ -32,15 +32,4 @@ export const createPush = async (
   }
 
   res.send(r);
-  /*
-  sendNotification(pushSubscription, JSON.stringify({ title, body }))
-    .then(notification =>
-      res.send({
-        title,
-        pushSubscription,
-        notification
-      })
-    )
-    .catch(err => res.send(err));
-*/
 };

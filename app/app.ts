@@ -9,7 +9,7 @@ import { createPush } from "./routes/createPush";
 import { getPublicKey } from "./routes/getPublicKey";
 import { addOrUpdateSubscription } from "./routes/subscriptions";
 
-const PORT = process.env.PORT || 8080;
+const PORT = Number(process.env.PORT) || 8080;
 
 const app: express.Application = express();
 app.use(cors());
