@@ -15,11 +15,11 @@ The private/public keypair can be generated here: https://tools.reactpwa.com/vap
 
 ## API Reference
 
-### GET /key/
+### `GET` /key/
 
 Get the Uint8Array version of the `VAPID_PUBLIC_KEY` that can be used as the `applicationServerKey` for the `ServiceWorkerRegistration.pushManager.subscribe`-Method
 
-### POST /subscription/
+### `POST` /subscription/
 
 Add a push subscription to the DB
 
@@ -38,7 +38,7 @@ Content-Type: application/json
 }
 ```
 
-### POST /push/
+### `POST` /push/
 
 Send a push notification to all clients
 
