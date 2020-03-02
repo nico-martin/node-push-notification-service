@@ -1,5 +1,6 @@
 import express from "express";
-import { setGCMAPIKey, setVapidDetails, sendNotification } from "web-push";
+import { setVapidDetails, sendNotification } from "web-push";
+import { Subscriptions } from "../database";
 
 export const createPush = async (
   req: express.Request,
@@ -7,16 +8,39 @@ export const createPush = async (
 ) => {
   const title = req.body.title;
   const body = req.body.body;
-  setGCMAPIKey(String(process.env.FCM_API_KEY));
+
   setVapidDetails(
     "mailto:" + process.env.VAPID_EMAIL,
     String(process.env.VAPID_PUBLIC_KEY),
     String(process.env.VAPID_PRIVATE_KEY)
   );
 
-  res.send({
-    hello: "welt",
-    title,
-    body
-  });
+  const subscriptions = await Subscriptions.getAll();
+  const r = [];
+  for (let i = 0; i < subscriptions.length; i++) {
+    const subscription = subscriptions[i];
+    const pushSubscription = {
+      endpoint: subscription.endpoint,
+      keys: {
+        p256dh: subscription.p256dh,
+        auth: subscription.auth
+      }
+    };
+    r.push(
+      await sendNotification(pushSubscription, JSON.stringify({ title, body }))
+    );
+  }
+
+  res.send(r);
+  /*
+  sendNotification(pushSubscription, JSON.stringify({ title, body }))
+    .then(notification =>
+      res.send({
+        title,
+        pushSubscription,
+        notification
+      })
+    )
+    .catch(err => res.send(err));
+*/
 };
