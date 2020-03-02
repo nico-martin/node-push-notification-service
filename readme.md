@@ -1,11 +1,11 @@
 # Push Notification Service
 
-A push notification service based on NodeJS written in Typescript.
+A push notification service based on NodeJS written in TypeScript.
 
 ## .env Variables
-The service requires some evironment variables:
+The service requires some environment variables:
 * `DATABASE_URL` The URL to the MongoDB
-* `VAPID_EMAIL` an email adress used for VAPID verification 
+* `VAPID_EMAIL` an email address used for VAPID verification 
 * `VAPID_PRIVATE_KEY` VAPID Private Key
 * `VAPID_PUBLIC_KEY` VAPID Public Key
 
@@ -17,7 +17,7 @@ The private/public keypair can be generated here: https://tools.reactpwa.com/vap
 
 ### `GET` /key/
 
-Get the Uint8Array version of the `VAPID_PUBLIC_KEY` that can be used as the `applicationServerKey` for the `ServiceWorkerRegistration.pushManager.subscribe`-Method
+Get the Uint8Array version of the `VAPID_PUBLIC_KEY` that can be used as the `applicationServerKey` for the `ServiceWorkerRegistration.pushManager.subscribe`-Method.
 
 ### `POST` /subscription/
 
