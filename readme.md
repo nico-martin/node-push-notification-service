@@ -10,6 +10,7 @@ The service requires some environment variables:
 * `VAPID_EMAIL` an email address used for VAPID verification 
 * `VAPID_PRIVATE_KEY` VAPID Private Key
 * `VAPID_PUBLIC_KEY` VAPID Public Key
+* `AUTH_ADMIN_PASSWORD` (optional) if you want to you can secure the push endpoint using a basic auth admin/AUTH_ADMIN_PASSWORD
 
 The Voluntary Application Server Identification (VAPID) is used to encrypt push notification data and identify the application server to a push service.
 
