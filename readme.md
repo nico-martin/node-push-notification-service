@@ -1,6 +1,6 @@
 # Push Notification Service
 
-An API based push notification service based on NodeJS written in TypeScript.
+An API driven push notification service based on NodeJS written in TypeScript.
 
 It saves push subscriptions to a MongoDB and let's you then send a push to those subscriptions using the HTTPWebPush.
 
