@@ -33,7 +33,7 @@ export const createPushNotification = async (
         )
       );
     } catch (e) {
-      console.log(e);
+      r.push(e);
     }
   }
 
