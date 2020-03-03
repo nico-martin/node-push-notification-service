@@ -16,6 +16,8 @@ export const createPushNotification = async (
     subscriptions = await Subscriptions.getAll();
   }
   const r = [];
+  let failed = 0;
+  let success = 0;
   for (let i = 0; i < subscriptions.length; i++) {
     const subscription = subscriptions[i];
     const pushSubscription = {
@@ -26,6 +28,7 @@ export const createPushNotification = async (
       }
     };
     try {
+      success++;
       r.push(
         await sendNotification(
           pushSubscription,
@@ -33,9 +36,17 @@ export const createPushNotification = async (
         )
       );
     } catch (e) {
+      success--;
+      failed++;
       r.push(e);
     }
   }
 
-  return r;
+  return {
+    status: {
+      success,
+      failed
+    },
+    responses: r
+  };
 };
