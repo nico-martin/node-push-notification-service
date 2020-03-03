@@ -25,9 +25,16 @@ export const createPushNotification = async (
         auth: subscription.auth
       }
     };
-    r.push(
-      await sendNotification(pushSubscription, JSON.stringify({ title, body }))
-    );
+    try {
+      r.push(
+        await sendNotification(
+          pushSubscription,
+          JSON.stringify({ title, body })
+        )
+      );
+    } catch (e) {
+      console.log(e);
+    }
   }
 
   return r;
