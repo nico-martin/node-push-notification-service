@@ -1,16 +1,6 @@
 import models from "./models";
 
-export interface ISubscription {
-  id: string;
-  endpoint: string;
-  p256dh: string;
-  auth: string;
-}
-
-export interface ISubscriptionsAdded {
-  type: string;
-  data: ISubscription | null;
-}
+import { ISubscriptionsAdded, ISubscription } from "./utils/types";
 
 export const Subscriptions = {
   add: async ({

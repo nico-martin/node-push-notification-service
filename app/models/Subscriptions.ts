@@ -1,11 +1,5 @@
-import mongoose, { Schema, Document } from "mongoose";
-
-export interface ISubscription extends Document {
-  id: string;
-  endpoint: string;
-  p256dh: string;
-  auth: string;
-}
+import mongoose, { Schema } from "mongoose";
+import { ISubscriptionBD } from "../utils/types";
 
 const SubscriptionsSchema: Schema = new Schema({
   id: {
@@ -28,7 +22,7 @@ const SubscriptionsSchema: Schema = new Schema({
   }
 });
 
-export default mongoose.model<ISubscription>(
+export default mongoose.model<ISubscriptionBD>(
   "subscriptions",
   SubscriptionsSchema
 );
