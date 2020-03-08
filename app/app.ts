@@ -7,7 +7,11 @@ import { connectDB } from "./models";
 
 import { createPush } from "./routes/createPush";
 import { getPublicKey } from "./routes/getPublicKey";
-import { addOrUpdateSubscription } from "./routes/subscriptions";
+import {
+  addOrUpdateSubscription,
+  getSubscription,
+  deleteSubscription
+} from "./routes/subscriptions";
 
 const PORT = Number(process.env.PORT) || 8080;
 
@@ -18,6 +22,8 @@ app.use(bodyParser.json());
 app.post("/push/", createPush);
 app.get("/key/", getPublicKey);
 app.post("/subscription/", addOrUpdateSubscription);
+app.get("/subscription/:endpoint/", getSubscription);
+app.delete("/subscription/:endpoint/", deleteSubscription);
 
 connectDB().then(() => {
   app.listen(PORT, () => console.log(`APP listening to ${PORT}!`));

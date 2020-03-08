@@ -26,6 +26,14 @@ Get the Uint8Array version of the `VAPID_PUBLIC_KEY` that can be used as the `ap
 
 Add a push subscription to the DB
 
+### `GET` /subscription/:endpoint/
+
+Check if endpoint is in the DB
+
+### `DELETE` /subscription/:endpoint/
+
+Delete endpoint from the DB
+
 **Header:**
 
 ```
