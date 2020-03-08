@@ -1,5 +1,6 @@
 import { sendNotification, setVapidDetails } from "web-push";
-import { ISubscription, Subscriptions } from "../database";
+import { Subscriptions } from "../database";
+import { ISubscription } from "../utils/types";
 
 export const createPushNotification = async (
   title: string,
