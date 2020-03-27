@@ -4,6 +4,8 @@ An API driven push notification service based on NodeJS written in TypeScript.
 
 It saves push subscriptions to a MongoDB and let's you then send a push to those subscriptions using the HTTPWebPush.
 
+Make sure to have a look at my [Push Notification Demo](https://github.com/nico-martin/notification-push-demo/) for a possible client-side integration.
+
 ## .env Variables
 The service requires some environment variables:
 * `DATABASE_URL` The URL to the MongoDB
